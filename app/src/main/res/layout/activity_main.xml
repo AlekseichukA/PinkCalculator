@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,22 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-        />
+            android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tv_for_first_number"
+            android:id="@+id/first_number_text_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textStyle="italic"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -36,22 +32,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            />
+            android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tv_for_mathematical_operation"
+            android:id="@+id/mathematical_operation_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -64,17 +57,15 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            />
+            android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tv_for_second_number"
+            android:id="@+id/second_number_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -82,22 +73,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-        />
+            android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tv_for_equally"
+            android:id="@+id/equally_text_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textStyle="italic"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -105,22 +93,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            />
+            android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tv_for_result"
+            android:id="@+id/result_text_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textStyle="italic"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -128,24 +113,21 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="3"
             android:layout_height="match_parent"
-            />
+            android:layout_weight="3" />
 
         <Button
-            android:id="@+id/b_clickingOn_all_clean"
+            android:id="@+id/all_clean_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
             android:text="@string/ac"
-            android:textStyle="bold"
-            android:padding="0dp"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -153,45 +135,40 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/b_clickingOn_7"
+            android:id="@+id/seven_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_7"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/seven" />
 
         <Button
-            android:id="@+id/b_clickingOn_8"
+            android:id="@+id/eight_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_8"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/eight" />
 
         <Button
-            android:id="@+id/b_clickingOn_9"
+            android:id="@+id/nine_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_9"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/nine" />
 
         <Button
-            android:id="@+id/b_clickingOn_division"
+            android:id="@+id/division_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_division"
-            android:textStyle="bold"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/division"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -201,45 +178,40 @@
         android:layout_weight="3"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="0dp"
-        >
+        android:padding="0dp" >
 
         <Button
-            android:id="@+id/b_clickingOn_4"
+            android:id="@+id/four_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/_4"
             android:padding="0dp"
-            />
+            android:text="@string/four" />
 
         <Button
-            android:id="@+id/b_clickingOn_5"
+            android:id="@+id/five_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/_5"
             android:padding="0dp"
-            />
+            android:text="@string/five" />
 
         <Button
-            android:id="@+id/b_clickingOn_6"
+            android:id="@+id/six_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/_6"
             android:padding="0dp"
-            />
+            android:text="@string/six" />
 
         <Button
-            android:id="@+id/b_clickingOn_multiplication"
+            android:id="@+id/multiplication_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/_multiplication"
-            android:textStyle="bold"
             android:padding="0dp"
-            />
+            android:text="@string/multiplication"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -247,45 +219,40 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/b_clickingOn_1"
+            android:id="@+id/one_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_1"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/one" />
 
         <Button
-            android:id="@+id/b_clickingOn_2"
+            android:id="@+id/two_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_2"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/two" />
 
         <Button
-            android:id="@+id/b_clickingOn_3"
+            android:id="@+id/three_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_3"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/three" />
 
         <Button
-            android:id="@+id/b_clickingOn_minus"
+            android:id="@+id/minus_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
             android:text="@string/minus"
-            android:textStyle="bold"
-            android:padding="0dp"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -293,47 +260,42 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/b_clickingOn_0"
+            android:id="@+id/null_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/_0"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/_0" />
 
         <Button
-            android:id="@+id/b_clickingOn_point"
+            android:id="@+id/point_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
             android:text="@string/point"
-            android:textStyle="bold"
-            android:padding="0dp"
-            />
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/b_clickingOn_equally"
+            android:id="@+id/equally_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
             android:text="@string/equally"
-            android:textStyle="bold"
-            android:padding="0dp"
-            />
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/b_clickingOn_plus"
+            android:id="@+id/plus_button"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/plus"
-            android:textStyle="bold"
+            android:layout_weight="1"
             android:padding="0dp"
-            />
+            android:text="@string/plus"
+            android:textStyle="bold" />
 
         </LinearLayout>
 
