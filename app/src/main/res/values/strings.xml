@@ -17,4 +17,6 @@
     <string name="point">.</string>
     <string name="equally">=</string>
     <string name="plus">+</string>
+    <string name="message_error">Ошибка!</string>
+    <string name="message_division_on_null">Ошибка, деление на 0!</string>
 </resources>

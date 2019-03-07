@@ -6,8 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private static final String NULL = "0";
+import static com.example.aaa.pinkcalculator.CommonConstants.getMinus;
+import static com.example.aaa.pinkcalculator.CommonConstants.getPoint;
+import static com.example.aaa.pinkcalculator.CommonConstants.getZero;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String ONE = "1";
     private static final String TWO = "2";
     private static final String THREE = "3";
@@ -17,17 +20,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String SEVEN = "7";
     private static final String EIGHT = "8";
     private static final String NINE = "9";
-    private static final String POINT = ".";
-    private static final String NULL_AND_POINT = "0.";
+    private static final String ZERO_AND_POINT = "0.";
     private static final String PLUS = "+";
     private static final String MINUS = "-";
     private static final String MULTIPLICATION = "*";
     private static final String DIVISION = "/";
     private static final String EQUALLY = "=";
     private static final String EMPTY_TEXT = "";
-    private static final String MESSAGE_ERROR = "Ошибка!";
-    private static final String MESSAGE_DIVISION_ON_NULL = "Ошибка, деление на 0!";
-
 
     private TextView firstNumberView;
     private TextView operationView;
@@ -76,18 +75,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View v) {
+        nextOperation();
         switch (v.getId()) {
-            case R.id.null_button:
-                nextOperation();
-                if (Numbers.canAddNullToFirstNumberView(this)) {
-                    firstNumberView.append(NULL);
-                } else if (Numbers.canAddNullToSecondNumberView(this)) {
-                    secondNumberView.append(NULL);
+            case R.id.zero_button:
+                if (Numbers.canAddZeroToFirstNumberView(this)) {
+                    firstNumberView.append(getZero());
+                } else if (Numbers.canAddZeroToSecondNumberView(this)) {
+                    secondNumberView.append(getZero());
                 }
 
                 break;
             case R.id.one_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(ONE);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -96,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.two_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(TWO);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -105,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.three_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(THREE);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -114,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.four_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(FOUR);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -123,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.five_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(FIVE);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -132,7 +126,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.six_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(SIX);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -141,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.seven_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(SEVEN);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -150,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.eight_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(EIGHT);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -159,7 +150,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.nine_button:
-                nextOperation();
                 if (Numbers.canAddNumberToFirstNumberView(this)) {
                     firstNumberView.append(NINE);
                 } else if (Numbers.canAddNumberToSecondNumberView(this)) {
@@ -168,17 +158,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.point_button:
-                nextOperation();
                 if (Numbers.canAddPointToFirstNumberView(this)) {
-                    if (firstNumberView.getText().length() == 0 ||
-                            firstNumberView.getText().toString().equals(MINUS)) {
-                        firstNumberView.append(NULL_AND_POINT);
-                    } else firstNumberView.append(POINT);
+                    if (Numbers.canAddZeroAndPointToFirstNumberView(this)) {
+                        firstNumberView.append(ZERO_AND_POINT);
+                    } else {
+                        firstNumberView.append(getPoint());
+                    }
                 } else if (Numbers.canAddPointToSecondNumberView(this)) {
-                    if (secondNumberView.getText().length() == 0 ||
-                            secondNumberView.getText().toString().equals(MINUS)) {
-                        secondNumberView.append(NULL_AND_POINT);
-                    } else secondNumberView.append(POINT);
+                    if (Numbers.canAddZeroAndPointToSecondNumberView(this)) {
+                        secondNumberView.append(ZERO_AND_POINT);
+                    } else {
+                        secondNumberView.append(getPoint());
+                    }
                 }
 
                 break;
@@ -190,18 +181,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.minus_button:
                 if (Numbers.canAddMinusToFirstNumberView(this)) {
-                    if (firstNumberView.getText().toString().contains(MINUS)) {
+                    if (firstNumberView.getText().toString().contains(getMinus())) {
                         firstNumberView.setText(EMPTY_TEXT);
                     } else {
-                        firstNumberView.append(MINUS);
+                        firstNumberView.append(getMinus());
                     }
                 } else if (Operation.canAddMinus(this)) {
-                    operationView.append(MINUS);
+                    operationView.append(getMinus());
                 } else if (Numbers.canAddMinusToSecondNumberView(this)) {
-                    if (secondNumberView.getText().toString().contains(MINUS)) {
+                    if (secondNumberView.getText().toString().contains(getMinus())) {
                         secondNumberView.setText(EMPTY_TEXT);
                     } else {
-                        secondNumberView.append(MINUS);
+                        secondNumberView.append(getMinus());
                     }
                 }
 
@@ -242,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 break;
                             case DIVISION:
                                 if (secondNumber == 0.0) {
-                                    resultView.append(MESSAGE_DIVISION_ON_NULL);
+                                    resultView.setText(R.string.message_division_on_null);
                                 } else {
                                     resultNumber = firstNumber / secondNumber;
                                     resultView.append(resultNumber.toString());
@@ -251,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 break;
                         }
                     } catch (NumberFormatException ex) {
-                        resultView.append(MESSAGE_ERROR);
+                        resultView.setText(R.string.message_error);
                     }
                 }
 
@@ -272,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         secondNumberView = findViewById(R.id.second_number_text_view);
         equallyView = findViewById(R.id.equally_text_view);
         resultView = findViewById(R.id.result_text_view);
-        Button nullButton = findViewById(R.id.null_button);
+        Button nullButton = findViewById(R.id.zero_button);
         Button oneButton = findViewById(R.id.one_button);
         Button twoButton = findViewById(R.id.two_button);
         Button threeButton = findViewById(R.id.three_button);
@@ -289,6 +280,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button multiplicationButton = findViewById(R.id.multiplication_button);
         Button divisionButton = findViewById(R.id.division_button);
         Button allCleanButton = findViewById(R.id.all_clean_button);
+
         nullButton.setOnClickListener(this);
         oneButton.setOnClickListener(this);
         twoButton.setOnClickListener(this);
