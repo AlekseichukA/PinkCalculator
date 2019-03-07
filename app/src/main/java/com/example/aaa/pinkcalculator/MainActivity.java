@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import static com.example.aaa.pinkcalculator.CommonConstants.getMinus;
 import static com.example.aaa.pinkcalculator.CommonConstants.getPoint;
 import static com.example.aaa.pinkcalculator.CommonConstants.getZero;
