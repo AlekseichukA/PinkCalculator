@@ -1,9 +1,9 @@
 package com.example.aaa.pinkcalculator;
 
 import android.widget.TextView;
-import static com.example.aaa.pinkcalculator.CommonConstants.getMinus;
-import static com.example.aaa.pinkcalculator.CommonConstants.getPoint;
-import static com.example.aaa.pinkcalculator.CommonConstants.getZero;
+import static com.example.aaa.pinkcalculator.CommonConstants.MINUS;
+import static com.example.aaa.pinkcalculator.CommonConstants.POINT;
+import static com.example.aaa.pinkcalculator.CommonConstants.ZERO;
 
 public class Numbers {
     private static final String MINUS_AND_NULL = "-0";
@@ -25,7 +25,7 @@ public class Numbers {
     }
 
     public static boolean canAddZeroToFirstNumberView(MainActivity mainActivity) {
-        if (mainActivity.getFirstNumberView().getText().toString().equals(getZero())
+        if (mainActivity.getFirstNumberView().getText().toString().equals(ZERO)
                 || mainActivity.getFirstNumberView().getText().equals(MINUS_AND_NULL)) {
             return false;
         }
@@ -33,7 +33,7 @@ public class Numbers {
     }
 
     public static boolean canAddZeroToSecondNumberView(MainActivity mainActivity) {
-        if (mainActivity.getSecondNumberView().getText().toString().equals(getZero())
+        if (mainActivity.getSecondNumberView().getText().toString().equals(ZERO)
                 || mainActivity.getSecondNumberView().getText().equals(MINUS_AND_NULL)) {
             return false;
         }
@@ -41,14 +41,16 @@ public class Numbers {
     }
 
     public static boolean canAddPointToFirstNumberView(MainActivity mainActivity) {
-        if (mainActivity.getFirstNumberView().getText().toString().contains(getPoint()))
+        if (mainActivity.getFirstNumberView().getText().toString().contains(POINT)) {
             return false;
+        }
         return canAddNumberToFirstNumberView(mainActivity);
     }
 
     public static boolean canAddPointToSecondNumberView(MainActivity mainActivity) {
-        if (mainActivity.getSecondNumberView().getText().toString().contains(getPoint()))
+        if (mainActivity.getSecondNumberView().getText().toString().contains(POINT)) {
             return false;
+        }
         return canAddNumberToSecondNumberView(mainActivity);
     }
 
@@ -62,7 +64,7 @@ public class Numbers {
 
     public static boolean canAddMinusToFirstNumberView(MainActivity mainActivity) {
         return (mainActivity.getFirstNumberView().getText().length() == 0
-                || mainActivity.getFirstNumberView().getText().toString().equals(getMinus()))
+                || mainActivity.getFirstNumberView().getText().toString().equals(MINUS))
                 && mainActivity.getOperationView().getText().length() == 0
                 && mainActivity.getSecondNumberView().getText().length() == 0
                 && mainActivity.getEquallyView().getText().length() == 0
@@ -80,9 +82,6 @@ public class Numbers {
 
     private static boolean canAddZeroAndPoint(TextView numberView) {
         return numberView.getText().length() == 0
-                || numberView.getText().toString().equals(getMinus());
+                || numberView.getText().toString().equals(MINUS);
     }
-
-
-
 }
