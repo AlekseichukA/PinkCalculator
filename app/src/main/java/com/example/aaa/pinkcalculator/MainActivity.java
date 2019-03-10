@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import static com.example.aaa.pinkcalculator.CommonConstants.getMinus;
-import static com.example.aaa.pinkcalculator.CommonConstants.getPoint;
-import static com.example.aaa.pinkcalculator.CommonConstants.getZero;
+import static com.example.aaa.pinkcalculator.CommonConstants.MINUS;
+import static com.example.aaa.pinkcalculator.CommonConstants.POINT;
+import static com.example.aaa.pinkcalculator.CommonConstants.ZERO;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String ONE = "1";
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String NINE = "9";
     private static final String ZERO_AND_POINT = "0.";
     private static final String PLUS = "+";
-    private static final String MINUS = "-";
     private static final String MULTIPLICATION = "*";
     private static final String DIVISION = "/";
     private static final String EQUALLY = "=";
@@ -79,9 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.zero_button:
                 if (Numbers.canAddZeroToFirstNumberView(this)) {
-                    firstNumberView.append(getZero());
+                    firstNumberView.append(ZERO);
                 } else if (Numbers.canAddZeroToSecondNumberView(this)) {
-                    secondNumberView.append(getZero());
+                    secondNumberView.append(ZERO);
                 }
 
                 break;
@@ -162,13 +160,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (Numbers.canAddZeroAndPointToFirstNumberView(this)) {
                         firstNumberView.append(ZERO_AND_POINT);
                     } else {
-                        firstNumberView.append(getPoint());
+                        firstNumberView.append(POINT);
                     }
                 } else if (Numbers.canAddPointToSecondNumberView(this)) {
                     if (Numbers.canAddZeroAndPointToSecondNumberView(this)) {
                         secondNumberView.append(ZERO_AND_POINT);
                     } else {
-                        secondNumberView.append(getPoint());
+                        secondNumberView.append(POINT);
                     }
                 }
 
@@ -181,18 +179,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.minus_button:
                 if (Numbers.canAddMinusToFirstNumberView(this)) {
-                    if (firstNumberView.getText().toString().contains(getMinus())) {
+                    if (firstNumberView.getText().toString().contains(MINUS)) {
                         firstNumberView.setText(EMPTY_TEXT);
                     } else {
-                        firstNumberView.append(getMinus());
+                        firstNumberView.append(MINUS);
                     }
                 } else if (Operation.canAddMinus(this)) {
-                    operationView.append(getMinus());
+                    operationView.append(MINUS);
                 } else if (Numbers.canAddMinusToSecondNumberView(this)) {
-                    if (secondNumberView.getText().toString().contains(getMinus())) {
+                    if (secondNumberView.getText().toString().contains(MINUS)) {
                         secondNumberView.setText(EMPTY_TEXT);
                     } else {
-                        secondNumberView.append(getMinus());
+                        secondNumberView.append(MINUS);
                     }
                 }
 
