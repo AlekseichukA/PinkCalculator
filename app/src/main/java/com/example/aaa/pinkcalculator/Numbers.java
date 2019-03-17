@@ -6,27 +6,27 @@ import static com.example.aaa.pinkcalculator.CommonConstants.POINT;
 import static com.example.aaa.pinkcalculator.CommonConstants.ZERO;
 
 public class Numbers {
-    private static final String MINUS_AND_NULL = "-0";
+    private static final String MINUS_AND_ZERO = "-0";
 
     public static boolean canAddNumberToFirstNumberView(MainActivity mainActivity) {
-        return mainActivity.getFirstNumberView().getText().length() >= 0
-                && mainActivity.getOperationView().getText().length() == 0
-                && mainActivity.getSecondNumberView().getText().length() == 0
-                && mainActivity.getEquallyView().getText().length() == 0
-                && mainActivity.getResultNumber().getText().length() == 0;
+        return lengthOfFirstNumberView(mainActivity) >= 0
+                && lengthOfOperationView(mainActivity) == 0
+                && lengthOfSecondNumberView(mainActivity) == 0
+                && lengthOfEquallyView(mainActivity) == 0
+                && lengthOfResultNumber(mainActivity) == 0;
     }
 
     public static boolean canAddNumberToSecondNumberView(MainActivity mainActivity) {
-        return mainActivity.getFirstNumberView().getText().length() > 0
-                && mainActivity.getOperationView().getText().length() > 0
-                && mainActivity.getSecondNumberView().getText().length() >= 0
-                && mainActivity.getEquallyView().getText().length() == 0
-                && mainActivity.getResultNumber().getText().length() == 0;
+        return lengthOfFirstNumberView(mainActivity) > 0
+                && lengthOfOperationView(mainActivity) > 0
+                && lengthOfSecondNumberView(mainActivity) >= 0
+                && lengthOfEquallyView(mainActivity) == 0
+                && lengthOfResultNumber(mainActivity) == 0;
     }
 
     public static boolean canAddZeroToFirstNumberView(MainActivity mainActivity) {
         if (mainActivity.getFirstNumberView().getText().toString().equals(ZERO)
-                || mainActivity.getFirstNumberView().getText().equals(MINUS_AND_NULL)) {
+                || mainActivity.getFirstNumberView().getText().equals(MINUS_AND_ZERO)) {
             return false;
         }
         return canAddNumberToFirstNumberView(mainActivity);
@@ -34,7 +34,7 @@ public class Numbers {
 
     public static boolean canAddZeroToSecondNumberView(MainActivity mainActivity) {
         if (mainActivity.getSecondNumberView().getText().toString().equals(ZERO)
-                || mainActivity.getSecondNumberView().getText().equals(MINUS_AND_NULL)) {
+                || mainActivity.getSecondNumberView().getText().equals(MINUS_AND_ZERO)) {
             return false;
         }
         return canAddNumberToSecondNumberView(mainActivity);
@@ -63,21 +63,41 @@ public class Numbers {
     }
 
     public static boolean canAddMinusToFirstNumberView(MainActivity mainActivity) {
-        return (mainActivity.getFirstNumberView().getText().length() == 0
+        return (lengthOfFirstNumberView(mainActivity) == 0
                 || mainActivity.getFirstNumberView().getText().toString().equals(MINUS))
-                && mainActivity.getOperationView().getText().length() == 0
-                && mainActivity.getSecondNumberView().getText().length() == 0
-                && mainActivity.getEquallyView().getText().length() == 0
-                && mainActivity.getResultNumber().getText().length() == 0;
+                && lengthOfOperationView(mainActivity) == 0
+                && lengthOfSecondNumberView(mainActivity) == 0
+                && lengthOfEquallyView(mainActivity) == 0
+                && lengthOfResultNumber(mainActivity) == 0;
     }
 
     public static boolean canAddMinusToSecondNumberView(MainActivity mainActivity) {
-        return mainActivity.getFirstNumberView().getText().length() > 0
-                && mainActivity.getOperationView().getText().length() > 0
-                && (mainActivity.getSecondNumberView().getText().length() == 0
-                || mainActivity.getSecondNumberView().getText().toString().equals("-"))
-                && mainActivity.getEquallyView().getText().length() == 0
-                && mainActivity.getResultNumber().getText().length() == 0;
+        return lengthOfFirstNumberView(mainActivity) > 0
+                && lengthOfOperationView(mainActivity) > 0
+                && (lengthOfSecondNumberView(mainActivity) == 0
+                || mainActivity.getSecondNumberView().getText().toString().equals(MINUS))
+                && lengthOfEquallyView(mainActivity) == 0
+                && lengthOfResultNumber(mainActivity) == 0;
+    }
+
+    private static int lengthOfFirstNumberView(MainActivity mainActivity) {
+        return mainActivity.getFirstNumberView().getText().length();
+    }
+
+    private static int lengthOfOperationView(MainActivity mainActivity) {
+        return mainActivity.getOperationView().getText().length();
+    }
+
+    private static int lengthOfSecondNumberView(MainActivity mainActivity) {
+        return mainActivity.getSecondNumberView().getText().length();
+    }
+
+    private static int lengthOfEquallyView(MainActivity mainActivity) {
+        return mainActivity.getEquallyView().getText().length();
+    }
+
+    private static int lengthOfResultNumber(MainActivity mainActivity) {
+        return mainActivity.getResultNumber().getText().length();
     }
 
     private static boolean canAddZeroAndPoint(TextView numberView) {
