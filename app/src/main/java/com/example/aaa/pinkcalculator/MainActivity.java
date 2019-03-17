@@ -2,67 +2,65 @@ package com.example.aaa.pinkcalculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import static com.example.aaa.pinkcalculator.CommonConstants.MINUS;
+import static com.example.aaa.pinkcalculator.CommonConstants.POINT;
+import static com.example.aaa.pinkcalculator.CommonConstants.ZERO;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String ONE = "1";
+    private static final String TWO = "2";
+    private static final String THREE = "3";
+    private static final String FOUR = "4";
+    private static final String FIVE = "5";
+    private static final String SIX = "6";
+    private static final String SEVEN = "7";
+    private static final String EIGHT = "8";
+    private static final String NINE = "9";
+    private static final String ZERO_AND_POINT = "0.";
+    private static final String PLUS = "+";
+    private static final String MULTIPLICATION = "*";
+    private static final String DIVISION = "/";
+    private static final String EQUALLY = "=";
+    private static final String EMPTY_TEXT = "";
 
-    private TextView fieldForFirsNumber;
-    private TextView fieldForOperation;
-    private TextView fieldForSecondNumber;
-    private TextView fieldForEqually;
-    private TextView fieldForResult;
-
-    private Button buttonFor_0;
-    private Button buttonFor_1;
-    private Button buttonFor_2;
-    private Button buttonFor_3;
-    private Button buttonFor_4;
-    private Button buttonFor_5;
-    private Button buttonFor_6;
-    private Button buttonFor_7;
-    private Button buttonFor_8;
-    private Button buttonFor_9;
-    private Button buttonFor_point;
-    private Button buttonFor_equally;
-    private Button buttonFor_plus;
-    private Button buttonFor_minus;
-    private Button buttonFor_multiplication;
-    private Button buttonFor_division;
-    private Button buttonFor_all_clean;
-
+    private TextView firstNumberView;
+    private TextView operationView;
+    private TextView secondNumberView;
+    private TextView equallyView;
+    private TextView resultView;
     private Double firstNumber;
     private Double secondNumber;
     private Double resultNumber;
 
-    public TextView getFieldForFirsNumber() {
-        return fieldForFirsNumber;
+    public TextView getFirstNumberView() {
+        return firstNumberView;
     }
 
-    public TextView getFieldForOperation() {
-        return fieldForOperation;
+    public TextView getOperationView() {
+        return operationView;
     }
 
-    public TextView getFieldForSecondNumber() {
-        return fieldForSecondNumber;
+    public TextView getSecondNumberView() {
+        return secondNumberView;
     }
 
-    public TextView getFieldForResult() {
-        return fieldForResult;
+    public TextView getResultNumber() {
+        return resultView;
     }
 
-    public TextView getFieldForEqually() {
-        return fieldForEqually;
+    public TextView getEquallyView() {
+        return equallyView;
     }
 
     private void allClean() {
-        fieldForFirsNumber.setText(null);
-        fieldForOperation.setText(null);
-        fieldForSecondNumber.setText(null);
-        fieldForEqually.setText(null);
-        fieldForResult.setText(null);
+        firstNumberView.setText(null);
+        operationView.setText(null);
+        secondNumberView.setText(null);
+        equallyView.setText(null);
+        resultView.setText(null);
         firstNumber = null;
         secondNumber = null;
         resultNumber = null;
@@ -75,202 +73,181 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View v) {
-
+        nextOperation();
         switch (v.getId()) {
-            case R.id.b_clickingOn_0:
-                nextOperation();
-                if (Numbers.canAddNullToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("0");
+            case R.id.zero_button:
+                if (Numbers.canAddZeroToFirstNumberView(this)) {
+                    firstNumberView.append(ZERO);
+                } else if (Numbers.canAddZeroToSecondNumberView(this)) {
+                    secondNumberView.append(ZERO);
                 }
-                else if (Numbers.canAddNullToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("0");
-                }
-                break;
 
-            case R.id.b_clickingOn_1:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("1");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("1");
-                }
                 break;
+            case R.id.one_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(ONE);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(ONE);
+                }
 
-            case R.id.b_clickingOn_2:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("2");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("2");
-                }
                 break;
+            case R.id.two_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(TWO);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(TWO);
+                }
 
-            case R.id.b_clickingOn_3:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("3");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("3");
-                }
                 break;
+            case R.id.three_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(THREE);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(THREE);
+                }
 
-            case R.id.b_clickingOn_4:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("4");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("4");
-                }
                 break;
+            case R.id.four_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(FOUR);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(FOUR);
+                }
 
-            case R.id.b_clickingOn_5:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("5");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("5");
-                }
                 break;
+            case R.id.five_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(FIVE);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(FIVE);
+                }
 
-            case R.id.b_clickingOn_6:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("6");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("6");
-                }
                 break;
+            case R.id.six_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(SIX);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(SIX);
+                }
 
-            case R.id.b_clickingOn_7:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("7");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("7");
-                }
                 break;
+            case R.id.seven_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(SEVEN);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(SEVEN);
+                }
 
-            case R.id.b_clickingOn_8:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("8");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("8");
-                }
                 break;
+            case R.id.eight_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(EIGHT);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(EIGHT);
+                }
 
-            case R.id.b_clickingOn_9:
-                nextOperation();
-                if (Numbers.canAddNumberToFirsNumberField(this)) {
-                    fieldForFirsNumber.append("9");
-                }
-                else if (Numbers.canAddNumberToSecondNumberField(this)) {
-                    fieldForSecondNumber.append("9");
-                }
                 break;
+            case R.id.nine_button:
+                if (Numbers.canAddNumberToFirstNumberView(this)) {
+                    firstNumberView.append(NINE);
+                } else if (Numbers.canAddNumberToSecondNumberView(this)) {
+                    secondNumberView.append(NINE);
+                }
 
-            case R.id.b_clickingOn_point:
-                nextOperation();
-                if (Numbers.canAddPointToFirsNumberField(this)) {
-                    if (fieldForFirsNumber.getText().length() == 0 ||
-                            fieldForFirsNumber.getText().toString().equals("-")) {
-                        fieldForFirsNumber.append("0.");
+                break;
+            case R.id.point_button:
+                if (Numbers.canAddPointToFirstNumberView(this)) {
+                    if (Numbers.canAddZeroAndPointToFirstNumberView(this)) {
+                        firstNumberView.append(ZERO_AND_POINT);
+                    } else {
+                        firstNumberView.append(POINT);
                     }
-                    else fieldForFirsNumber.append(".");
-                }
-                else if (Numbers.canAddPointToSecondNumberField(this)) {
-                    if (fieldForSecondNumber.getText().length() == 0 ||
-                            fieldForSecondNumber.getText().toString().equals("-")) {
-                        fieldForSecondNumber.append("0.");
+                } else if (Numbers.canAddPointToSecondNumberView(this)) {
+                    if (Numbers.canAddZeroAndPointToSecondNumberView(this)) {
+                        secondNumberView.append(ZERO_AND_POINT);
+                    } else {
+                        secondNumberView.append(POINT);
                     }
-                    else fieldForSecondNumber.append(".");
                 }
-                break;
 
-            case R.id.b_clickingOn_plus:
+                break;
+            case R.id.plus_button:
                 if (Operation.canAddPlus(this)) {
-                    fieldForOperation.append("+");
+                    operationView.append(PLUS);
                 }
-                break;
 
-            case R.id.b_clickingOn_minus:
-                if (Numbers.canAddMinusToFirsNumberField(this)) {
-                    if (fieldForFirsNumber.getText().toString().contains("-")) {
-                        fieldForFirsNumber.setText("");
-                    }
-                    else {
-                        fieldForFirsNumber.append("-");
-                    }
-                }
-                else if (Operation.canAddMinus(this)) {
-                     fieldForOperation.append("-");
-                }
-                else if (Numbers.canAddMinusToSecondNumberField(this)) {
-                    if (fieldForSecondNumber.getText().toString().contains("-")) {
-                        fieldForSecondNumber.setText("");
-                    }
-                    else {
-                        fieldForSecondNumber.append("-");
-                    }
-                }
                 break;
+            case R.id.minus_button:
+                if (Numbers.canAddMinusToFirstNumberView(this)) {
+                    if (firstNumberView.getText().toString().contains(MINUS)) {
+                        firstNumberView.setText(EMPTY_TEXT);
+                    } else {
+                        firstNumberView.append(MINUS);
+                    }
+                } else if (Operation.canAddMinus(this)) {
+                    operationView.append(MINUS);
+                } else if (Numbers.canAddMinusToSecondNumberView(this)) {
+                    if (secondNumberView.getText().toString().contains(MINUS)) {
+                        secondNumberView.setText(EMPTY_TEXT);
+                    } else {
+                        secondNumberView.append(MINUS);
+                    }
+                }
 
-            case R.id.b_clickingOn_multiplication:
+                break;
+            case R.id.multiplication_button:
                 if (Operation.canAddMultiplication(this)) {
-                    fieldForOperation.append("*");
+                    operationView.append(MULTIPLICATION);
                 }
-                break;
 
-            case R.id.b_clickingOn_division:
+                break;
+            case R.id.division_button:
                 if (Operation.canAddDivision(this)) {
-                    fieldForOperation.append("/");
+                    operationView.append(DIVISION);
                 }
-                break;
 
-            case R.id.b_clickingOn_equally:
+                break;
+            case R.id.equally_button:
                 if (Operation.canAddEqually(this)) {
-                    fieldForEqually.append("=");
+                    equallyView.append(EQUALLY);
                     try {
-                        firstNumber = Double.parseDouble(fieldForFirsNumber.getText().toString());
-                        secondNumber = Double.parseDouble(fieldForSecondNumber.getText().toString());
-                        switch (fieldForOperation.getText().toString()) {
-                            case "+":
+                        firstNumber = Double.parseDouble(firstNumberView.getText().toString());
+                        secondNumber = Double.parseDouble(secondNumberView.getText().toString());
+                        switch (operationView.getText().toString()) {
+                            case PLUS:
                                 resultNumber = firstNumber + secondNumber;
-                                fieldForResult.append(resultNumber.toString());
+                                resultView.append(resultNumber.toString());
+
                                 break;
-                            case "-":
+                            case MINUS:
                                 resultNumber = firstNumber - secondNumber;
-                                fieldForResult.append(resultNumber.toString());
+                                resultView.append(resultNumber.toString());
+
                                 break;
-                            case "*":
+                            case MULTIPLICATION:
                                 resultNumber = firstNumber * secondNumber;
-                                fieldForResult.append(resultNumber.toString());
+                                resultView.append(resultNumber.toString());
+
                                 break;
-                            case "/":
+                            case DIVISION:
                                 if (secondNumber == 0.0) {
-                                    fieldForResult.append("Ошибка, деление на 0!");
+                                    resultView.setText(R.string.message_division_on_null);
                                 } else {
                                     resultNumber = firstNumber / secondNumber;
-                                    fieldForResult.append(resultNumber.toString());
+                                    resultView.append(resultNumber.toString());
                                 }
+
                                 break;
                         }
                     } catch (NumberFormatException ex) {
-                        fieldForResult.append("Ошибка!");
+                        resultView.setText(R.string.message_error);
                     }
                 }
-                break;
 
-            case R.id.b_clickingOn_all_clean:
+                break;
+            case R.id.all_clean_button:
                 allClean();
+
                 break;
         }
     }
@@ -279,47 +256,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firstNumberView = findViewById(R.id.first_number_text_view);
+        operationView = findViewById(R.id.mathematical_operation_text_view);
+        secondNumberView = findViewById(R.id.second_number_text_view);
+        equallyView = findViewById(R.id.equally_text_view);
+        resultView = findViewById(R.id.result_text_view);
+        Button nullButton = findViewById(R.id.zero_button);
+        Button oneButton = findViewById(R.id.one_button);
+        Button twoButton = findViewById(R.id.two_button);
+        Button threeButton = findViewById(R.id.three_button);
+        Button fourButton = findViewById(R.id.four_button);
+        Button fiveButton = findViewById(R.id.five_button);
+        Button sixButton = findViewById(R.id.six_button);
+        Button sevenButton = findViewById(R.id.seven_button);
+        Button eightButton = findViewById(R.id.eight_button);
+        Button nineButton = findViewById(R.id.nine_button);
+        Button pointButton = findViewById(R.id.point_button);
+        Button equallyButton = findViewById(R.id.equally_button);
+        Button plusButton = findViewById(R.id.plus_button);
+        Button minusButton = findViewById(R.id.minus_button);
+        Button multiplicationButton = findViewById(R.id.multiplication_button);
+        Button divisionButton = findViewById(R.id.division_button);
+        Button allCleanButton = findViewById(R.id.all_clean_button);
 
-        fieldForFirsNumber = findViewById(R.id.tv_for_first_number);
-        fieldForOperation = findViewById(R.id.tv_for_mathematical_operation);
-        fieldForSecondNumber = findViewById(R.id.tv_for_second_number);
-        fieldForEqually = findViewById(R.id.tv_for_equally);
-        fieldForResult = findViewById(R.id.tv_for_result);
-
-        buttonFor_0 = findViewById(R.id.b_clickingOn_0);
-        buttonFor_1 = findViewById(R.id.b_clickingOn_1);
-        buttonFor_2 = findViewById(R.id.b_clickingOn_2);
-        buttonFor_3 = findViewById(R.id.b_clickingOn_3);
-        buttonFor_4 = findViewById(R.id.b_clickingOn_4);
-        buttonFor_5 = findViewById(R.id.b_clickingOn_5);
-        buttonFor_6 = findViewById(R.id.b_clickingOn_6);
-        buttonFor_7 = findViewById(R.id.b_clickingOn_7);
-        buttonFor_8  = findViewById(R.id.b_clickingOn_8);
-        buttonFor_9 = findViewById(R.id.b_clickingOn_9);
-        buttonFor_point = findViewById(R.id.b_clickingOn_point);
-        buttonFor_equally = findViewById(R.id.b_clickingOn_equally);
-        buttonFor_plus = findViewById(R.id.b_clickingOn_plus);
-        buttonFor_minus = findViewById(R.id.b_clickingOn_minus);
-        buttonFor_multiplication = findViewById(R.id.b_clickingOn_multiplication);
-        buttonFor_division = findViewById(R.id.b_clickingOn_division);
-        buttonFor_all_clean = findViewById(R.id.b_clickingOn_all_clean);
-
-        buttonFor_0.setOnClickListener(this);
-        buttonFor_1.setOnClickListener(this);
-        buttonFor_2.setOnClickListener(this);
-        buttonFor_3.setOnClickListener(this);
-        buttonFor_4.setOnClickListener(this);
-        buttonFor_5.setOnClickListener(this);
-        buttonFor_6.setOnClickListener(this);
-        buttonFor_7.setOnClickListener(this);
-        buttonFor_8.setOnClickListener(this);
-        buttonFor_9.setOnClickListener(this);
-        buttonFor_point.setOnClickListener(this);
-        buttonFor_equally.setOnClickListener(this);
-        buttonFor_plus.setOnClickListener(this);
-        buttonFor_minus.setOnClickListener(this);
-        buttonFor_multiplication.setOnClickListener(this);
-        buttonFor_division.setOnClickListener(this);
-        buttonFor_all_clean.setOnClickListener(this);
+        nullButton.setOnClickListener(this);
+        oneButton.setOnClickListener(this);
+        twoButton.setOnClickListener(this);
+        threeButton.setOnClickListener(this);
+        fourButton.setOnClickListener(this);
+        fiveButton.setOnClickListener(this);
+        sixButton.setOnClickListener(this);
+        sevenButton.setOnClickListener(this);
+        eightButton.setOnClickListener(this);
+        nineButton.setOnClickListener(this);
+        pointButton.setOnClickListener(this);
+        equallyButton.setOnClickListener(this);
+        plusButton.setOnClickListener(this);
+        minusButton.setOnClickListener(this);
+        multiplicationButton.setOnClickListener(this);
+        divisionButton.setOnClickListener(this);
+        allCleanButton.setOnClickListener(this);
     }
 }
